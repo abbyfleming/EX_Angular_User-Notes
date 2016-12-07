@@ -2,19 +2,34 @@
 <html>
 <head>
 	<title>User Notes</title>
+	
 	<script src="lib/bower_components/angular/angular.min.js"></script>
 	<script src="lib/bower_components/angular-route/angular-route.js"></script>
+	<script src="lib/bower_components/firebase/firebase.js"></script>
+	<script src="lib/bower_components/jquery/dist/jquery.min.js"></script>
 </head>
 
-<body>
+<body ng-app="UserNotesApp">
 
-test
+	<!-- include a partial -->
+	<div ng-include="'partials/navbar.html'"></div>
+
+
+	<!-- ngView is a directive that complements the $route service by including the rendered template of the current route into the main layout (index.html) file. Every time the current route changes, the included view changes with it according to the configuration of the $route service. Requires the ngRoute module to be installed. -->
+	<div ng-view></div>
 
 
 <!-- app & factories -->
 <script type="text/javascript" src="app/app.js"></script>
-
+<script type="text/javascript" src="app/values/fb-creds.js"></script>
+<script type="text/javascript" src="app/factories/authFactory.js"></script>
+<script type="text/javascript" src="app/factories/itemFactory.js"></script>
 
 <!-- controllers -->
+<script type="text/javascript" src="app/controllers/loginCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/navCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/newCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/noteCtrl.js"></script>
+
 </body>
 </html>
