@@ -1,5 +1,4 @@
 "use strict";
-console.log("app.js linked");
 
 var app = angular.module("UserNotesApp", ['ngRoute']); 
 
@@ -21,18 +20,18 @@ app.config(function($routeProvider){
 		.when('/note', {
 			templateUrl: 'partials/note.html' //,
 			//controller: 'ItemListCtrl',
-			// Resolve: safety feature so people can't just go to the URL. 
-			//resolve: {isAuth}
+			
 		})
 		.when('/new', {
 			templateUrl: 'partials/note-form.html',
-			controller: "NoteNewCtrl"
+			controller: "NoteNewCtrl",
+			resolve: {isAuth}
 		})
 		.when('/login', {
 			templateUrl: 'partials/login.html',
 			controller: "LoginCtrl"
 		})
-		.otherwise('/note'); 
+		.otherwise('/'); 
 });
 
 
