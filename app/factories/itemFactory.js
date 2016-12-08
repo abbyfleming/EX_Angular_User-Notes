@@ -2,7 +2,7 @@
 
 app.factory("ItemStorage", ($http, FBCreds) => {
 
-	console.log("URL", FBCreds.URL);
+	//console.log("URL", FBCreds.URL);
 
 	let getItemList = () => {
 
@@ -24,23 +24,13 @@ app.factory("ItemStorage", ($http, FBCreds) => {
 		});
 	};
 
-	let getSingleItem = (itemId) => {
-		return new Promise((resolve, reject) => {
-			$http.get(`${FBCreds.URL}/items/${itemId}.json`)
-			.success((itemObject) => {
-				resolve(itemObject);
-			})
-			.error((error) => {
-				reject(error);
-			});
-		});
-	};
 
 	let postNewItem = (newTask) => {
 		return new Promise((resolve, reject) => {
 			$http.post(`${FBCreds.URL}/items.json`, angular.toJson(newTask))
 			.success((obj) => {
 				resolve(obj);
+				console.log("posted new item");
 			})
 			.error((error) => {
 				reject(error);
@@ -48,6 +38,6 @@ app.factory("ItemStorage", ($http, FBCreds) => {
 		});
 	};
 
-	return {getItemList, postNewItem, getSingleItem};
+	return {getItemList, postNewItem};
 
 }); 
