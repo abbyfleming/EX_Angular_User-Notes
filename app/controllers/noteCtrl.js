@@ -9,3 +9,4 @@ app.controller('ItemListCtrl', function($scope, $routeParams, ItemStorage){
 			$scope.$apply();
 	}); 
 });
+
