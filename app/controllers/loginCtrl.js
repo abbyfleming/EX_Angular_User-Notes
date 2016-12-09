@@ -2,10 +2,9 @@
 
 //cannot use fat arrows on constructors
 
-app.controller("LoginCtrl", function($scope, AuthFactory, $window) {
+app.controller("LoginCtrl", function($scope, $window, AuthFactory) {
 
-	console.log("control");
-
+	//default values
 	$scope.account = {
 		email: "",
 		password: ""
@@ -21,8 +20,8 @@ app.controller("LoginCtrl", function($scope, AuthFactory, $window) {
 	$scope.login = () => {
 		AuthFactory.loginUser($scope.account)
 			.then((user) => {
+				//where the page goes after user has logged in
 				$window.location.href = "#/new";
-				
 			});
 	};
 
