@@ -17,21 +17,25 @@ let isAuth = (AuthFactory) => new Promise((resolve, reject) => {
 
 app.config(function($routeProvider){
 	$routeProvider
-		.when('/note', {
-			templateUrl: 'partials/note.html' //,
-			//controller: 'ItemListCtrl',
+		//view notes
+		.when('/notes', {
+			templateUrl: 'partials/note.html',
+			controller: 'ItemListCtrl',
 			
 		})
+		//create note
 		.when('/new', {
 			templateUrl: 'partials/note-form.html',
 			controller: "NoteNewCtrl",
 			resolve: {isAuth}
 		})
+		//login
 		.when('/login', {
 			templateUrl: 'partials/login.html',
 			controller: "LoginCtrl"
 		})
-		.otherwise('/'); 
+		//default - login
+		.otherwise('/login'); 
 });
 
 

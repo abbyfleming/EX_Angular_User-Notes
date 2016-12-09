@@ -3,6 +3,7 @@
 <head>
 	<title>User Notes</title>
 	
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<script src="lib/bower_components/angular/angular.min.js"></script>
 	<script src="lib/bower_components/angular-route/angular-route.js"></script>
 	<script src="lib/bower_components/firebase/firebase.js"></script>
@@ -13,7 +14,6 @@
 
 	<!-- include a partial -->
 	<div ng-include="'partials/navbar.html'"></div>
-
 
 	<!-- ngView is a directive that complements the $route service by including the rendered template of the current route into the main layout (index.html) file. Every time the current route changes, the included view changes with it according to the configuration of the $route service. Requires the ngRoute module to be installed. -->
 	<div ng-view></div>
