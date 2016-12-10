@@ -1,15 +1,18 @@
 "use strict";
 
-app.factory("ItemStorage", ($http, FBCreds) => {
-
-	//console.log("URL", FBCreds.URL);
+app.factory("ItemStorage", ($http, AuthFactory, FBCreds) => {
 
 	let getItemList = () => {
 
+		let currentUser = AuthFactory.getUser();
 		let items = [];
 
+		console.log(currentUser);
+
 		return new Promise((resolve, reject) => {
-			$http.get(`${FBCreds.URL}/items.json`)
+			console.log(currentUser);
+
+			$http.get(`${FBCreds.URL}/items.json?orderBy="uid"&equalTo="${currentUser}"`)
 			.success((itemObject) => {
 				let itemCollection = itemObject;
 				Object.keys(itemCollection).forEach((key) =>{
